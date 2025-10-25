@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contáctenos — Integral Sys</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="shortcut icon" href="Imagenes/Logo-removebg.png" type="image/x-icon">
+  <style>
+    body {
+      background-color: #f9f9f9;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+      <div class="container">
+        <a class="navbar-brand" href="index.html"><img src="Imagenes/Logo-removebg.png" alt="" width="100"></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
+            <li class="nav-item"><a class="nav-link" href="Proyecto-actual.html">Proyecto Actual</a></li>
+            <li class="nav-item"><a class="nav-link" href="Proyectos.html">Proyectos</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main class="container mt-5 mb-5">
+    <h1 class="mb-4 display-6">Contáctenos</h1>
+
+    <div class="row">
+      <div class="col-lg-8">
+        <p>Contáctenos sobre cualquier cosa relacionada con nuestra empresa o servicios. Haremos todo lo posible por responderle a la brevedad.</p>
+
+        <div id="mensajeRespuesta" class="alert d-none" role="alert"></div>
+
+        <form class="contact-form" action="guardar_contacto.php" method="POST" id="formContacto" aria-label="Formulario de contacto">
+          <div class="row">
+            <div class="col-md-6 mb-3">
+              <label class="form-label">Nombre <span class="text-danger">*</span></label>
+              <input class="form-control" type="text" name="nombre" placeholder="Nombre completo" required>
+            </div>
+            <div class="col-md-6 mb-3">
+              <label class="form-label">Número de teléfono</label>
+              <input class="form-control" type="tel" name="telefono" placeholder="+57">
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-6 mb-3">
+              <label class="form-label">Correo <span class="text-danger">*</span></label>
+              <input class="form-control" type="email" name="correo" placeholder="tu@correo.com" required>
+            </div>
+            <div class="col-md-6 mb-3">
+              <label class="form-label">Empresa</label>
+              <input class="form-control" type="text" name="empresa" placeholder="Empresa (opcional)">
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label">Asunto</label>
+            <input class="form-control" type="text" name="asunto" placeholder="Asunto">
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label">Pregunta</label>
+            <textarea class="form-control" name="pregunta" rows="10" placeholder="Escribe tu mensaje..."></textarea>
+          </div>
+
+          <div class="text-end">
+            <button class="btn btn-dark" type="submit">Enviar</button>
+          </div>
+        </form>
+      </div>
+
+      <div class="col-lg-4">
+        <h5>Mi Compañía</h5>
+        <p>
+          <strong>Dirección</strong><br>
+          Cra 72 bis 72-68 Santa Maria del lago<br>
+          <strong>Teléfono</strong> +57 3160579777<br>
+          <strong>Correo</strong> compras@integralsys.com.co
+        </p>
+      </div>
+    </div>
+  </main>
+
+  <footer class="mt-5 mb-4 text-center small text-muted">&copy; 2025 Integral Sys</footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

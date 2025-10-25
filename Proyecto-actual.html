@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Proyecto Actual — Integral Sys</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Encabezado -->
+  <header>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container">
+    <a class="navbar-brand" href="index.html"><img src="imagenes/Logo-removebg.png" alt="" width="100px"></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item ">
+          <a class="nav-link"  aria-current="page" href="index.html">Inicio</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link-active" href="Proyecto-actual.html">Proyecto Actual</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="Proyectos.html">Proyectos</a>
+        </li>
+      </ul>
+      <div class="lupa">
+        <input type="search" placeholder="Qué deseas buscar?">
+        <i class="fa-solid fa-magnifying-glass"></i>
+      </div>
+      <form class="d-flex" role="search">
+        <!-- <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form> -->
+      <span class="navbar-text">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+        <li class="nav-item1">
+          <a class="nav-link1 " id="btn-contact" href="contact.html">Contáctanos</a>
+        </li>
+        </ul>
+      </span>
+    </div>
+    
+  </div>
+</nav>
+  </header>
+
+  <!-- Sección principal del proyecto -->
+  <section class="project-hero">
+    <div class="hero-content">
+      <h1 class="hero-title">BRACAMONTE</h1>
+      <p class="project-location">Ubicación: Ciudad - Zona exclusiva</p>
+      <p class="hero-sub">Un proyecto diseñado para combinar elegancia, funcionalidad y confort. Descubre tu próximo hogar en un entorno moderno y natural.</p>
+      <div class="hero-cta">
+        <button id="cta-view-apartments" class="cta-btn">Ver apartamentos disponibles</button>
+      </div>
+      <i class="fa-solid fa-chevron-down scroll-indicator" style="color: aqua;"></i>
+    </div>
+  </section>
+  
+  
+
+  <!-- Contenido dividido: Texto a la izquierda, Imagen a la derecha -->
+  <div class="split-layout-container animate-on-scroll">
+    
+    <div class="text-column">
+
+  <section class="welcome-hero animate-on-scroll">
+          <div class="welcome-content">
+            <h2>Bienvenido al proyecto Bracamonte</h2>
+            <p>Explora los detalles del proyecto, sus acabados y las ventajas de vivir en este desarrollo pensado para tu comodidad.</p>
+          </div>
+        </section>
+      
+      <p class="project-description">
+        El edificio presenta una mezcla de estilos arquitectónicos, combinando elementos modernos y tradicionales. El uso de ladrillo visto y las grandes ventanas recuerdan a la arquitectura industrial, mientras que los paneles oscuros y las líneas rectas aportan un toque más contemporáneo.
+      </p>
+      <p class="project-description">
+        Transmite una sensación de modernidad, comodidad y elegancia. Su diseño equilibrado y su ubicación en un entorno agradable lo convierten en una opción atractiva para quienes buscan un hogar en la ciudad.
+      </p>
+      <!-- Detalles del proyecto: pestañas (Diseño inspirado en la referencia) -->
+      
+    </div>
+    <div class="image-column">
+      <img src="Imagenes/BRACAMONTE.png" alt="Edificio Bracamonte">
+      
+    </div>
+    
+  </div>
+  <section class="project-details section">
+        <div class="container-wide">
+          <div class="tabs" role="tablist" aria-label="Secciones del proyecto">
+            <button type="button" class="tab active" role="tab" aria-selected="true" data-tab="desc">Descripción</button>
+              <button type="button" class="tab" role="tab" aria-selected="false" data-tab="apts">Apartamentos</button>
+              <button type="button" class="tab" role="tab" aria-selected="false" data-tab="amen">Amenidades</button>
+              <button type="button" class="tab" role="tab" aria-selected="false" data-tab="gal">Galería</button>
+              <!-- Botón de pestaña para el panel de contacto (mantener accesible pero discreto) -->
+              <button type="button" class="tab sr-only" role="tab" aria-selected="false" data-tab="contact">Contacto</button>
+          </div>
+
+          <div class="tab-panels">
+            <div class="tab-panel" id="desc" role="tabpanel">
+              <h3>Sobre el proyecto</h3>
+              <p class="lead">Proyecto insignia de IntegralSys que combina diseño moderno, ubicación privilegiada y acabados de primera calidad. Con vista panorámica de la ciudad y todos los servicios que necesitas para vivir cómodamente.</p>
+
+              <div class="details-grid">
+                <div class="details-left">
+                  <h4>Información general</h4>
+                  <ul class="info-list">
+                    <li><strong>Estado:</strong> <span class="status badge">En construcción</span></li>
+                    <li><strong>Inicio de obra:</strong> mayo de 2023</li>
+                    <li><strong>Entrega estimada:</strong> febrero de 2026</li>
+                    <li><strong>Pisos:</strong> 18</li>
+                    <li><strong>Torres por piso:</strong> 6</li>
+                  </ul>
+                </div>
+                <div class="details-right">
+                  <h4>Ubicación privilegiada</h4>
+                  <ul class="check-list">
+                    <li><i class="fa-solid fa-circle-check"></i> A 5 minutos de TransMilenio</li>
+                    <li><i class="fa-solid fa-circle-check"></i> Cerca a centros comerciales</li>
+                    <li><i class="fa-solid fa-circle-check"></i> Zona de restaurantes y cafés</li>
+                    <li><i class="fa-solid fa-circle-check"></i> Acceso rápido a vías principales</li>
+                    <li><i class="fa-solid fa-circle-check"></i> Parques cercanos</li>
+                    <li><i class="fa-solid fa-circle-check"></i> Colegios y universidades a minutos</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="construction-box">
+                <div class="construction-label">Avance de construcción</div>
+                <div class="construction-progress" data-progress="65">
+                  <div class="construction-progress-track">
+                    <div class="construction-progress-fill" style="width:65%"></div>
+                  </div>
+                  <div class="construction-percent">65%</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Paneles secundarios: placeholders para completar contenido -->
+            <div class="tab-panel" id="apts" role="tabpanel" hidden>
+              <h3>Apartamentos</h3>
+              <div class="apartment-list">
+                <article class="apt-item">
+                  <div class="apt-left">
+                    <h4>Estudio</h4>
+                    <div class="apt-meta"><span class="icon">🏠</span> <span class="area">45m²</span></div>
+                  </div>
+                  <div class="apt-right">
+                    <div class="availability">8 disponibles</div>
+                    <div class="price">$ 280.000.000</div>
+                                <button type="button" class="btn request-btn">Más información</button>
+                  </div>
+                </article>
+
+                <article class="apt-item">
+                  <div class="apt-left">
+                    <h4>2 Habitaciones</h4>
+                    <div class="apt-meta"><span class="icon">🏠</span> <span class="area">65m²</span></div>
+                  </div>
+                  <div class="apt-right">
+                    <div class="availability">15 disponibles</div>
+                    <div class="price">$ 350.000.000</div>
+                    <button type="button" class="btn request-btn">Más información</button>
+                  </div>
+                </article>
+
+                <article class="apt-item">
+                  <div class="apt-left">
+                    <h4>3 Habitaciones</h4>
+                    <div class="apt-meta"><span class="icon">🏠</span> <span class="area">85m²</span></div>
+                  </div>
+                  <div class="apt-right">
+                    <div class="availability">18 disponibles</div>
+                    <div class="price">$ 450.000.000</div>
+                    <button type="button" class="btn request-btn">Más información</button>
+                  </div>
+                </article>
+
+                <article class="apt-item">
+                  <div class="apt-left">
+                    <h4>Penthouse</h4>
+                    <div class="apt-meta"><span class="icon">🏠</span> <span class="area">120m²</span></div>
+                  </div>
+                  <div class="apt-right">
+                    <div class="availability">4 disponibles</div>
+                    <div class="price">$ 650.000.000</div>
+                    <button type="button" class="btn request-btn">Más información</button>
+                  </div>
+                </article>
+              </div>
+            </div>
+
+            <div class="tab-panel" id="amen" role="tabpanel" hidden>
+              <h3>Amenidades y servicios</h3>
+              <div class="amenities-grid">
+                <ul class="amen-list">
+                  <li><i class="fa-solid fa-circle-check"></i> Gimnasio completamente equipado</li>
+                  <li><i class="fa-solid fa-circle-check"></i> Salón social con cocina integral</li>
+                  <li><i class="fa-solid fa-circle-check"></i> Parqueadero cubierto</li>
+                  <li><i class="fa-solid fa-circle-check"></i> Zona de juegos infantiles</li>
+                  <li><i class="fa-solid fa-circle-check"></i> Cuarto de bicicletas</li>
+                </ul>
+                <ul class="amen-list">
+                  <li><i class="fa-solid fa-circle-check"></i> Piscina con zona de hidromasaje</li>
+                  <li><i class="fa-solid fa-circle-check"></i> Zona BBQ con terraza</li>
+                  <li><i class="fa-solid fa-circle-check"></i> Portería y vigilancia 24/7</li>
+                  <li><i class="fa-solid fa-circle-check"></i> Coworking space</li>
+                  <li><i class="fa-solid fa-circle-check"></i> Ascensores de alta velocidad</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="tab-panel" id="gal" role="tabpanel" hidden>
+              <h3>Galería del proyecto</h3>
+              <div class="gallery-grid">
+                <img src="Imagenes/BRACAMONTE.png" alt="Galería 1">
+                <img src="Imagenes/Plano a.png" alt="Galería 2">
+                <img src="Imagenes/Plano B.png" alt="Galería 3">
+                <img src="Imagenes/planoC.jpg" alt="Galería 4">
+              </div>
+            </div>
+            
+            <!-- Panel para solicitudes / diseño mostrado cuando se pulsa 'Solicitar información' -->
+            <div class="tab-panel" id="contact" role="tabpanel" hidden>
+              <div class="contact-panel">
+                <div class="contact-image">
+                  <img src="Imagenes/Plano a.png" alt="Diseño del apartamento">
+                </div>
+                <div class="contact-info">
+                  <h3>Solicitar información — Diseño</h3>
+                  <p class="lead">Aquí puedes ver el diseño del apartamento y dejar tus datos para que nos comuniquemos contigo. Incluye planos, acabados y demás detalles que te ayudarán a tomar una decisión.</p>
+                  <ul class="design-details">
+                    <li><strong>Tipo:</strong> Plano del apartamento / diseño</li>
+                    <li><strong>Área aproximada:</strong> 45m² - 120m² (según tipo)</li>
+                    <li><strong>Acabados:</strong> Piso en porcelanato, cocinas integrales, grifería moderna</li>
+                  </ul>
+
+                  <form class="contact-form" aria-label="Formulario de solicitud">
+                    <label class="visually-hidden">Nombre</label>
+                    <input type="text" name="name" placeholder="Tu nombre" required>
+                    <label class="visually-hidden">Teléfono</label>
+                    <input type="tel" name="phone" placeholder="Teléfono (opcional)">
+                    <label class="visually-hidden">Correo</label>
+                    <input type="email" name="email" placeholder="Correo electrónico" required>
+                    <!-- Comentarios eliminados por petición del usuario -->
+                    <div class="contact-actions">
+                      <button type="button" class="btn btn-outline-secondary close-contact">Cerrar</button>
+                    </div>
+                    <div class="contact-feedback" aria-live="polite"></div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+  <!-- Sección: Tipos de apartamentos -->
+  <!-- Pie de página -->
+    <!-- Mapa interactivo antes del footer -->
+    <section class="address-strip">
+      <div class="container-wide">
+        <div class="map-strip">
+          <iframe class="map-iframe" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=Calle+75+%2377B-45+Bogota&output=embed"></iframe>
+          <div class="map-card">
+            <div class="map-card-inner">
+              <strong>Dirección</strong>
+              <div>Calle 75 #77B-45, Bogotá</div>
+              <a class="map-link" href="https://www.google.com/maps/search/?api=1&query=Calle+75+%2377B-45+Bogota" target="_blank" rel="noopener">Abrir en Google Maps</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+<!-- Pie de página -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-column">
+        <h3>Enlaces útiles</h3>
+        <ul>
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="Proyectos.html">Proyectos</a></li>
+          <li><a href="Proyecto-actual.html">Proyecto Actual</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h3>Sobre nosotros</h3>
+        <p>Somos un equipo de personas apasionadas cuyo objetivo es mejorar la vida de todos a través de productos disruptivos. Construimos grandes apartamentos para resolver sus necesidades de vivienda.</p>
+      </div>
+      <div class="footer-column">
+        <h3>Contáctanos</h3>
+        <ul>
+          <li><a href="mailto:gerencia@integralsys.com.co">gerencia@integralsys.com.co</a></li>
+          <li><a href="tel:+573160579777">+57 3160579777</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 Integral Sys. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+  <script src="script.js"></script>
+</body>
+</html>
