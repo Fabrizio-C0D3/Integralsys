@@ -138,63 +138,55 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Si el contenedor .lupa tiene el icono, usar clic en icono para disparar búsqueda
     if (searchForm) {
-    // Crear un botón para limpiar la búsqueda dentro del widget .lupa
-        let clearBtn = searchForm.querySelector('.lupa-clear');
-        if (!clearBtn) {
-            clearBtn = document.createElement('button');
-            clearBtn.type = 'button';
-            clearBtn.className = 'lupa-clear';
-            clearBtn.setAttribute('aria-label', 'Limpiar búsqueda');
-            clearBtn.innerHTML = '&times;';
-            searchForm.appendChild(clearBtn);
-        }
+        const clearBtn = searchForm.querySelector('.lupa-clear');
+        const prevBtn = searchForm.querySelector('.lupa-prev');
+        const nextBtn = searchForm.querySelector('.lupa-next');
+        const counter = searchForm.querySelector('.lupa-counter');
 
         // Mostrar/ocultar según contenido
         const updateClearVisibility = () => {
-            if (searchInput && searchInput.value.trim()) clearBtn.style.display = 'inline-flex';
-            else clearBtn.style.display = 'none';
+            if (searchInput && clearBtn) {
+                clearBtn.classList.toggle('visible', searchInput.value.trim() !== '');
+            }
         };
         updateClearVisibility();
 
         if (searchInput) {
             searchInput.addEventListener('input', updateClearVisibility);
         }
-
-        // Acción del botón: limpiar input y highlights
-        clearBtn.addEventListener('click', function (ev) {
-            ev && ev.preventDefault && ev.preventDefault();
-            if (searchInput) { searchInput.value = ''; searchInput.focus(); }
-            removeHighlights();
-            updateClearVisibility();
-            updateControls();
-        });
-
-        // Crear controles Prev / Counter / Next
-        let prevBtn = searchForm.querySelector('.lupa-prev');
-        let nextBtn = searchForm.querySelector('.lupa-next');
-        let counter = searchForm.querySelector('.lupa-counter');
-        if (!prevBtn) {
-            prevBtn = document.createElement('button'); prevBtn.type = 'button'; prevBtn.className = 'lupa-prev'; prevBtn.setAttribute('aria-label','Anterior'); prevBtn.textContent = '◀'; searchForm.appendChild(prevBtn);
-        }
-        if (!counter) {
-            counter = document.createElement('div'); counter.className = 'lupa-counter'; counter.setAttribute('aria-live','polite'); counter.textContent = '' ; searchForm.appendChild(counter);
-        }
-        if (!nextBtn) {
-            nextBtn = document.createElement('button'); nextBtn.type = 'button'; nextBtn.className = 'lupa-next'; nextBtn.setAttribute('aria-label','Siguiente'); nextBtn.textContent = '▶'; searchForm.appendChild(nextBtn);
+        
+        if (clearBtn) {
+            // Acción del botón: limpiar input y highlights
+            clearBtn.addEventListener('click', function (ev) {
+                ev.preventDefault();
+                if (searchInput) { searchInput.value = ''; searchInput.focus(); }
+                removeHighlights();
+                updateClearVisibility();
+                updateControls();
+            });
         }
 
-        // Wiring
-        prevBtn.addEventListener('click', function(e){ e && e.preventDefault && e.preventDefault(); prevMatch(); updateControls(); });
-        nextBtn.addEventListener('click', function(e){ e && e.preventDefault && e.preventDefault(); nextMatch(); updateControls(); });
+        if (prevBtn) {
+            prevBtn.addEventListener('click', function(e){ e.preventDefault(); prevMatch(); updateControls(); });
+        }
+        if (nextBtn) {
+            nextBtn.addEventListener('click', function(e){ e.preventDefault(); nextMatch(); updateControls(); });
+        }
 
         function updateControls(){
             const total = searchState.matches.length;
             if (total === 0) {
-                counter.textContent = '';
-                prevBtn.style.display = 'none'; nextBtn.style.display = 'none';
+                if(counter) counter.textContent = '';
+                if(prevBtn) prevBtn.classList.remove('visible');
+                if(nextBtn) nextBtn.classList.remove('visible');
+                if(counter) counter.style.display = 'none';
             } else {
-                prevBtn.style.display = 'inline-flex'; nextBtn.style.display = 'inline-flex';
-                counter.textContent = (searchState.index + 1) + ' / ' + total;
+                if(prevBtn) prevBtn.classList.add('visible');
+                if(nextBtn) nextBtn.classList.add('visible');
+                if(counter) {
+                    counter.textContent = (searchState.index + 1) + ' / ' + total;
+                    counter.style.display = 'inline-block';
+                }
             }
         }
 
@@ -205,6 +197,7 @@ document.addEventListener('DOMContentLoaded', function() {
             if (target && (target.classList && target.classList.contains('fa-magnifying-glass') || target.tagName === 'I' || target === searchForm)) {
                 const term = searchInput ? searchInput.value.trim() : '';
                 findAndHighlight(term);
+                updateControls();
             }
         });
 
@@ -216,6 +209,8 @@ document.addEventListener('DOMContentLoaded', function() {
     document.addEventListener('keydown', function (e) {
         if (e.key === 'Escape') {
             removeHighlights();
+            if (searchInput) searchInput.value = '';
+            updateControls();
         }
         // Ctrl+G -> siguiente (común en editores)
         if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'g') {
@@ -322,31 +317,29 @@ document.addEventListener('DOMContentLoaded', function() {
                 // CTA button: llevar al usuario a la sección de tipos de apartamentos
                 try {
                         // More robust CTA handling: look for explicit id, otherwise fall back to common heroes/buttons
-                        var ctaBtn = document.getElementById('cta-view-apartments') || document.querySelector('.hero .cta-btn') || document.querySelector('.cta-btn');
-                        var tulipanes = document.getElementById('tulipanes');
-                        var welcomeSection = document.querySelector('.welcome-hero');
-                        var heroSection = document.querySelector('.hero');
+                        const ctaBtn = document.getElementById('cta-view-apartments');
+                        const heroSection = document.querySelector('.hero, .project-hero');
+
                         if (ctaBtn) {
                             ctaBtn.addEventListener('click', function (ev) {
-                                ev && ev.preventDefault && ev.preventDefault();
-                                // Preferred target order: #tulipanes -> .welcome-hero -> .hero -> first <main> child
-                                if (tulipanes) {
-                                    tulipanes.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                                } else if (welcomeSection) {
-                                    welcomeSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                                } else if (heroSection) {
-                                    // If we're on a landing page with a.hero, scroll to the next section after hero
-                                    // Try to find the next sibling section to hero in the DOM
-                                    var next = heroSection.nextElementSibling;
-                                    if (next) {
-                                        next.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                                    } else {
-                                        heroSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                                    }
+                                ev.preventDefault();
+                                // Find the next section after the hero
+                                let targetSection = heroSection ? heroSection.nextElementSibling : null;
+
+                                // If the next sibling is not a section, try to find the first section in main
+                                if (!targetSection || targetSection.tagName !== 'SECTION') {
+                                    targetSection = document.querySelector('main > section');
+                                }
+
+                                // If a target is found, scroll to it. Otherwise, do nothing.
+                                if (targetSection) {
+                                    targetSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
                                 } else {
-                                    // fallback: scroll to top of main
-                                    var main = document.querySelector('main');
-                                    if (main) main.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                                    // Fallback for pages without a clear next section, like index.html
+                                    const apartmentsSection = document.querySelector('.apartments');
+                                    if (apartmentsSection) {
+                                        apartmentsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                                    }
                                 }
                             });
                         }
@@ -457,50 +450,45 @@ document.addEventListener('DOMContentLoaded', function() {
     } catch (e) { console.error('progress/reveal error', e); }
 })();
 
-// Tabs logic + animate construction progress when visible
+// Lógica de pestañas (Tabs) para la sección de detalles del proyecto
 (function () {
     try {
-        var tabs = document.querySelectorAll('.project-details .tab');
-        var panels = document.querySelectorAll('.project-details .tab-panel');
-        if (tabs.length) {
-                    tabs.forEach(function (btn) {
-                        btn.addEventListener('click', function (ev) {
-                            if (ev && ev.preventDefault) ev.preventDefault();
-                    var target = btn.getAttribute('data-tab');
-                    // deactivate
-                    tabs.forEach(t => { t.classList.remove('active'); t.setAttribute('aria-selected','false'); });
-                    panels.forEach(p => { p.hidden = true; });
-                    // activate
-                    btn.classList.add('active'); btn.setAttribute('aria-selected','true');
-                    var panel = document.getElementById(target);
-                    if (panel) { panel.hidden = false; panel.classList.add('in-view'); }
+        const tabs = document.querySelectorAll('.project-details .tab');
+        const panels = document.querySelectorAll('.project-details .tab-panel');
+
+        if (tabs.length && panels.length) {
+            tabs.forEach(tab => {
+                tab.addEventListener('click', function (ev) {
+                    ev.preventDefault();
+
+                    // No hacer nada si la pestaña ya está activa
+                    if (tab.classList.contains('active')) {
+                        return;
+                    }
+
+                    const targetId = tab.getAttribute('data-tab');
+                    const targetPanel = document.getElementById(targetId);
+
+                    // Desactivar todas las pestañas y paneles
+                    tabs.forEach(t => {
+                        t.classList.remove('active');
+                        t.setAttribute('aria-selected', 'false');
+                    });
+                    panels.forEach(p => {
+                        p.hidden = true;
+                    });
+
+                    // Activar la pestaña y el panel correctos
+                    tab.classList.add('active');
+                    tab.setAttribute('aria-selected', 'true');
+                    if (targetPanel) {
+                        targetPanel.hidden = false;
+                    }
                 });
             });
         }
-
-        // Animate construction progress when its parent panel enters view
-        var progEls = document.querySelectorAll('.construction-progress');
-        if (progEls.length && 'IntersectionObserver' in window) {
-            var progObs = new IntersectionObserver(function (entries) {
-                entries.forEach(function (entry) {
-                    if (entry.isIntersecting) {
-                        var fill = entry.target.querySelector('.construction-progress-fill');
-                        var pct = entry.target.getAttribute('data-progress') || (fill && parseInt(fill.style.width,10)) || 0;
-                        if (fill) {
-                            fill.style.width = (pct ? pct + '%' : '0%');
-                        }
-                        progObs.unobserve(entry.target);
-                    }
-                });
-            }, { threshold: 0.2 });
-            progEls.forEach(function (el) { progObs.observe(el); });
-        } else {
-            // fallback set widths
-            progEls.forEach(function (el) { var fill = el.querySelector('.construction-progress-fill'); if (fill) { fill.style.width = fill.style.width || '65%'; } });
-        }
-    } catch (e) { console.error('tabs/progress error', e); }
+    } catch (e) { console.error('Tabs logic error:', e); }
 })();
-
 /* Request button -> open contact panel behavior */
 (function () {
     try {
@@ -510,6 +498,10 @@ document.addEventListener('DOMContentLoaded', function() {
             requestBtns.forEach(function (btn) {
                 btn.addEventListener('click', function (ev) {
                     ev && ev.preventDefault && ev.preventDefault();
+                    // capture apartment data (if provided) and find the contact panel
+                    var aptName = btn.getAttribute('data-apt-name') || '';
+                    var aptArea = btn.getAttribute('data-apt-area') || '';
+                    var aptPrice = btn.getAttribute('data-apt-price') || '';
                     // find the contact panel and show it via the same tab mechanism
                     var contactPanel = document.getElementById('contact');
                     var tabs = document.querySelectorAll('.project-details .tab');
@@ -523,6 +515,19 @@ document.addEventListener('DOMContentLoaded', function() {
                     if (contactPanel) {
                         contactPanel.hidden = false;
                         contactPanel.classList.add('in-view');
+                        // populate selected apartment summary inside the contact panel
+                        try {
+                            var contactTitle = contactPanel.querySelector('.contact-title');
+                            var summary = document.getElementById('selectedAptSummary');
+                            if (contactTitle && aptName) contactTitle.textContent = 'Solicitar información — ' + aptName;
+                            if (summary) {
+                                var html = '';
+                                if (aptName) html += '<div><strong>' + aptName + '</strong></div>';
+                                if (aptArea) html += '<div>Área: ' + aptArea + '</div>';
+                                if (aptPrice) html += '<div>Valor: <strong>' + aptPrice + '</strong></div>';
+                                summary.innerHTML = html;
+                            }
+                        } catch (e) { /* ignore if elements not present */ }
                         // add a visual active state on a synthetic tab (if exists)
                         var contactTab = document.querySelector('.project-details .tab[data-tab="contact"]');
                         if (contactTab) { contactTab.classList.add('active'); contactTab.setAttribute('aria-selected','true'); }
@@ -554,84 +559,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // no form submit handling needed (no submit button)
     } catch (e) { console.error('contact panel error', e); }
-})();
-
-// Tabs logic + animate construction progress when visible
-(function () {
-    try {
-        var tabs = document.querySelectorAll('.project-details .tab');
-        var panels = document.querySelectorAll('.project-details .tab-panel');
-        if (tabs.length) {
-                    tabs.forEach(function (btn) {
-                        btn.addEventListener('click', function (ev) {
-                            if (ev && ev.preventDefault) ev.preventDefault();
-                    var target = btn.getAttribute('data-tab');
-                    // deactivate
-                    tabs.forEach(t => { t.classList.remove('active'); t.setAttribute('aria-selected','false'); });
-                    panels.forEach(p => { p.hidden = true; });
-                    // activate
-                    btn.classList.add('active'); btn.setAttribute('aria-selected','true');
-                    var panel = document.getElementById(target);
-                    if (panel) { panel.hidden = false; panel.classList.add('in-view'); }
-                });
-            });
-        }
-
-        // Animate construction progress when its parent panel enters view
-        var progEls = document.querySelectorAll('.construction-progress');
-        if (progEls.length && 'IntersectionObserver' in window) {
-            var progObs = new IntersectionObserver(function (entries) {
-                entries.forEach(function (entry) {
-                    if (entry.isIntersecting) {
-                        var fill = entry.target.querySelector('.construction-progress-fill');
-                        var pct = entry.target.getAttribute('data-progress') || (fill && parseInt(fill.style.width,10)) || 0;
-                        if (fill) {
-                            fill.style.width = (pct ? pct + '%' : '0%');
-                        }
-                        progObs.unobserve(entry.target);
-                    }
-                });
-            }, { threshold: 0.2 });
-            progEls.forEach(function (el) { progObs.observe(el); });
-        } else {
-            // fallback set widths
-            progEls.forEach(function (el) { var fill = el.querySelector('.construction-progress-fill'); if (fill) { fill.style.width = fill.style.width || '65%'; } });
-        }
-    } catch (e) { console.error('tabs/progress error', e); }
-})();
-
-// Scroll progress and reveal helper (idempotent)
-(function () {
-    try {
-        var progressBar = document.getElementById('progress-bar');
-        if (progressBar) {
-            var updateProgress = function () {
-                var scrollTop = window.scrollY || window.pageYOffset;
-                var docHeight = Math.max(document.body.scrollHeight, document.documentElement.scrollHeight) - window.innerHeight;
-                var pct = docHeight > 0 ? Math.max(0, Math.min(100, (scrollTop / docHeight) * 100)) : 0;
-                progressBar.style.width = pct + '%';
-            };
-            window.addEventListener('scroll', updateProgress, { passive: true });
-            window.addEventListener('resize', updateProgress);
-            updateProgress();
-        }
-
-        // IntersectionObserver for .animate-on-scroll
-        var animated = document.querySelectorAll('.animate-on-scroll');
-        if ('IntersectionObserver' in window && animated.length) {
-            var obs = new IntersectionObserver(function (entries) {
-                entries.forEach(function (entry) {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('in-view');
-                    }
-                });
-            }, { threshold: 0.14, rootMargin: '0px 0px -8% 0px' });
-            animated.forEach(function (el) { obs.observe(el); });
-        } else {
-            // Fallback: reveal all
-            animated.forEach(function (el) { el.classList.add('in-view'); });
-        }
-    } catch (e) { console.error('progress/reveal error', e); }
 })();
 
 // ===== MANEJO DEL FORMULARIO DE CONTACTO =====

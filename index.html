@@ -19,14 +19,14 @@
   <header>
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
   <div class="container">
-    <a class="navbar-brand" href="index.html"><img src="Imagenes/Logo-removebg.png" alt="" width="100px"></a>
+    <a class="navbar-brand" href="index.html"><img src="imagenes/Logo-removebg.png" alt="" width="100px"></a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item ">
-          <a class="nav-link-active" aria-current="page" href="#">Inicio</a>
+          <a class="nav-link-active" aria-current="page" href="index.html">Inicio</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="Proyecto-actual.html">Proyecto Actual</a>
@@ -35,9 +35,13 @@
           <a class="nav-link" href="Proyectos.html">Proyectos</a>
         </li>
       </ul>
-      <div class="lupa">
+      <div class="lupa" role="search">
         <input type="search" placeholder="Qué deseas buscar?">
         <i class="fa-solid fa-magnifying-glass"></i>
+        <button type="button" class="lupa-clear" aria-label="Limpiar búsqueda">&times;</button>
+        <button type="button" class="lupa-prev" aria-label="Anterior">◀</button>
+        <div class="lupa-counter" aria-live="polite"></div>
+        <button type="button" class="lupa-next" aria-label="Siguiente">▶</button>
       </div>
       <form class="d-flex" role="search">
         <!-- <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
@@ -65,9 +69,10 @@
     <p>Construimos espacios de vivienda para ti</p>
     <p>En Integral sys, no solo construimos apartamentos, sino que creamos espacios donde los sueños se hacen realidad. Con un enfoque en la calidad y la innovación, nos dedicamos a ofrecer cinco tipos de apartamentos que se adaptan a tus necesidades y estilo de vida.</p>
     
-    <a class="btn-ctc" href="contact.html">Contáctanos hoy</a>
-    <a class="btn-ctc" href="Proyecto-actual.html"> Proyecto Actual</a>
-
+    <div class="hero-cta">
+      <a class="btn-ctc" href="contact.html">Contáctanos hoy</a>
+      <a class="btn-ctc" href="Proyecto-actual.html">Proyecto Actual</a>
+    </div>
     </div>
   </section>
 
@@ -115,14 +120,15 @@
       <div class="footer-column">
         <h3>Contáctanos</h3>
         <ul class="contact-list">
-          <li><a href="mailto:gerencia@integralsys.com.co">gerencia@integralsys.com.co</a></li>
-          <li><a href="tel:+573160579777">+57 3160579777</a></li>
+          <li>gerencia@integralsys.com.co</li>
+          <li>+57 3160579777</li>
         </ul>
-        <div class="footer-social" aria-label="Redes sociales">
-          <a class="social" href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-          <a class="social" href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-          <a class="social" href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+        <div class="social-icons">
+          <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
         </div>
+    
       </div>
     </div>
     <div class="footer-bottom">
@@ -136,4 +142,3 @@
 </script>
 </body>
 </html>
-

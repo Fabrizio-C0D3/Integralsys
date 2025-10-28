@@ -30,9 +30,13 @@
           <a class="nav-link" href="Proyectos.html">Proyectos</a>
         </li>
       </ul>
-      <div class="lupa">
+      <div class="lupa" role="search">
         <input type="search" placeholder="Qué deseas buscar?">
         <i class="fa-solid fa-magnifying-glass"></i>
+        <button type="button" class="lupa-clear" aria-label="Limpiar búsqueda">&times;</button>
+        <button type="button" class="lupa-prev" aria-label="Anterior">◀</button>
+        <div class="lupa-counter" aria-live="polite"></div>
+        <button type="button" class="lupa-next" aria-label="Siguiente">▶</button>
       </div>
       <form class="d-flex" role="search">
         <!-- <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
@@ -148,54 +152,47 @@
             <!-- Paneles secundarios: placeholders para completar contenido -->
             <div class="tab-panel" id="apts" role="tabpanel" hidden>
               <h3>Apartamentos</h3>
-              <div class="apartment-list">
-                <article class="apt-item">
-                  <div class="apt-left">
-                    <h4>Estudio</h4>
-                    <div class="apt-meta"><span class="icon">🏠</span> <span class="area">45m²</span></div>
+              <!-- Two clean, centered cards side-by-side for the two apartment options -->
+              <div class="apartment-cards">
+                <div class="apartment-card">
+                  <h4>Apartamento Normal</h4>
+                  <div class="apt-area">Área: <strong>40 m²</strong></div>
+                  <p class="apt-desc">Consta de dos habitaciones, un baño, sala, comedor, cocina americana abierta y balcón. Se entrega terminado.</p>
+                  <div class="price-block">
+                    <div class="price-label">Valor total</div>
+                    <div class="price-amount">$272.132.000</div>
+                    <div class="price-breakdown">
+                      <div>Inicial (30%): <strong>$81.639.600</strong></div>
+                      <div>Separación: <strong>$20.000.000</strong></div>
+                      <div>Resto inicial: <strong>$61.639.600</strong></div>
+                      <div>16 cuotas: <strong>$3.852.475</strong></div>
+                      <div>A la entrega: <strong>$190.492.400</strong></div>
+                    </div>
                   </div>
-                  <div class="apt-right">
-                    <div class="availability">8 disponibles</div>
-                    <div class="price">$ 280.000.000</div>
-                                <button type="button" class="btn request-btn">Más información</button>
+                  <div class="card-actions">
+                    <button type="button" class="request-btn" data-apt-name="Apartamento Normal" data-apt-area="40 m²" data-apt-price="$272.132.000">Conocer este apartamento</button>
                   </div>
-                </article>
+                </div>
 
-                <article class="apt-item">
-                  <div class="apt-left">
-                    <h4>2 Habitaciones</h4>
-                    <div class="apt-meta"><span class="icon">🏠</span> <span class="area">65m²</span></div>
+                <div class="apartment-card">
+                  <h4>Apartamento Grande</h4>
+                  <div class="apt-area">Área: <strong>60 m²</strong></div>
+                  <p class="apt-desc">Consta de tres habitaciones, dos baños, sala, comedor, cocina americana abierta y balcón. Se entrega terminado.</p>
+                  <div class="price-block">
+                    <div class="price-label">Valor total</div>
+                    <div class="price-amount">$436.066.000</div>
+                    <div class="price-breakdown">
+                      <div>Inicial (30%): <strong>$130.819.800</strong></div>
+                      <div>Separación: <strong>$20.000.000</strong></div>
+                      <div>Resto inicial: <strong>$110.819.800</strong></div>
+                      <div>16 cuotas: <strong>$6.926.238</strong></div>
+                      <div>A la entrega: <strong>$305.246.200</strong></div>
+                    </div>
                   </div>
-                  <div class="apt-right">
-                    <div class="availability">15 disponibles</div>
-                    <div class="price">$ 350.000.000</div>
-                    <button type="button" class="btn request-btn">Más información</button>
+                  <div class="card-actions">
+                    <button type="button" class="request-btn" data-apt-name="Apartamento Grande" data-apt-area="60 m²" data-apt-price="$436.066.000">Conocer este apartamento</button>
                   </div>
-                </article>
-
-                <article class="apt-item">
-                  <div class="apt-left">
-                    <h4>3 Habitaciones</h4>
-                    <div class="apt-meta"><span class="icon">🏠</span> <span class="area">85m²</span></div>
-                  </div>
-                  <div class="apt-right">
-                    <div class="availability">18 disponibles</div>
-                    <div class="price">$ 450.000.000</div>
-                    <button type="button" class="btn request-btn">Más información</button>
-                  </div>
-                </article>
-
-                <article class="apt-item">
-                  <div class="apt-left">
-                    <h4>Penthouse</h4>
-                    <div class="apt-meta"><span class="icon">🏠</span> <span class="area">120m²</span></div>
-                  </div>
-                  <div class="apt-right">
-                    <div class="availability">4 disponibles</div>
-                    <div class="price">$ 650.000.000</div>
-                    <button type="button" class="btn request-btn">Más información</button>
-                  </div>
-                </article>
+                </div>
               </div>
             </div>
 
@@ -236,7 +233,8 @@
                   <img src="Imagenes/Plano a.png" alt="Diseño del apartamento">
                 </div>
                 <div class="contact-info">
-                  <h3>Solicitar información — Diseño</h3>
+                  <h3 class="contact-title">Solicitar información</h3>
+                  <div id="selectedAptSummary" class="selected-apt" aria-live="polite" style="margin-bottom:0.6rem;"></div>
                   <p class="lead">Aquí puedes ver el diseño del apartamento y dejar tus datos para que nos comuniquemos contigo. Incluye planos, acabados y demás detalles que te ayudarán a tomar una decisión.</p>
                   <ul class="design-details">
                     <li><strong>Tipo:</strong> Plano del apartamento / diseño</li>
@@ -244,14 +242,6 @@
                     <li><strong>Acabados:</strong> Piso en porcelanato, cocinas integrales, grifería moderna</li>
                   </ul>
 
-                  <form class="contact-form" aria-label="Formulario de solicitud">
-                    <label class="visually-hidden">Nombre</label>
-                    <input type="text" name="name" placeholder="Tu nombre" required>
-                    <label class="visually-hidden">Teléfono</label>
-                    <input type="tel" name="phone" placeholder="Teléfono (opcional)">
-                    <label class="visually-hidden">Correo</label>
-                    <input type="email" name="email" placeholder="Correo electrónico" required>
-                    <!-- Comentarios eliminados por petición del usuario -->
                     <div class="contact-actions">
                       <button type="button" class="btn btn-outline-secondary close-contact">Cerrar</button>
                     </div>
@@ -299,9 +289,15 @@
       <div class="footer-column">
         <h3>Contáctanos</h3>
         <ul>
-          <li><a href="mailto:gerencia@integralsys.com.co">gerencia@integralsys.com.co</a></li>
-          <li><a href="tel:+573160579777">+57 3160579777</a></li>
+          <li class="contact-list">gerencia@integralsys.com.co</li>
+          <li class="contact-list">+57 3160579777</li>
         </ul>
+        <div class="social-icons">
+          <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+    
       </div>
     </div>
     <div class="footer-bottom">

@@ -90,7 +90,7 @@
     .navbar-nav .nav-link {
       color: #2c3e50 !important; /* Color de texto oscuro para los enlaces */
       font-size: 18px; /* Tamaño de letra más grande */
-      margin: 0 10px; /* Espacio horizontal entre los enlaces */
+      margin: 0 10px !important;  /* Espacio horizontal entre los enlaces */
       transition: 0.3s; /* Transición suave para todas las propiedades */
 
     }
@@ -223,7 +223,8 @@
 }
 
 .lupa:hover input {
-    display: block;
+    display: block; /* Asegura que el input sea visible */
+    width: calc(100% - 214px); /* Ajusta el ancho para dejar espacio a los controles */
 }
 
 .lupa:hover .fa-solid{
@@ -236,14 +237,15 @@
   position: relative;
 }
 .lupa .lupa-clear {
-  display: none; /* se muestra solo cuando hay texto */
+  display: none;
   position: absolute;
-  right: 44px; /* a la izquierda del icono de lupa */
-  top: 6px;
+  right: 50px;
+  top: 50%;
+  transform: translateY(-50%);
   align-items: center;
   justify-content: center;
-  width: 32px;
-  height: 32px;
+  width: 28px;
+  height: 28px;
   border-radius: 50%;
   border: none;
   background: rgba(0,0,0,0.06);
@@ -251,19 +253,22 @@
   cursor: pointer;
   font-size: 18px;
   line-height: 1;
-  padding: 0;
+  padding: 0;  opacity: 0;
+  transition: opacity 150ms ease-in-out;
 }
 .lupa .lupa-clear:hover { background: rgba(0,0,0,0.12); }
 .lupa .lupa-clear:focus { outline: 2px solid rgba(29,78,216,0.18); }
+.lupa .lupa-clear.visible { display: inline-flex; opacity: 1; }
 
 /* Controles de navegación de resultados (Prev / Counter / Next) dentro del widget */
 .lupa .lupa-prev,
 .lupa .lupa-next {
-  display: none; /* se muestran solo cuando hay resultados */
+  display: none;
   position: absolute;
-  top: 6px;
-  width: 30px;
-  height: 30px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 28px;
+  height: 28px;
   border-radius: 6px;
   border: none;
   background: rgba(25,43,61,0.06);
@@ -271,15 +276,21 @@
   cursor: pointer;
   align-items: center;
   justify-content: center;
-  font-size: 14px;
+  font-size: 12px;
+  opacity: 0;
+  transition: opacity 150ms ease-in-out;
 }
-.lupa .lupa-prev { right: 86px; }
-.lupa .lupa-next { right: 6px; }
+.lupa .lupa-prev { right: 166px; } /* Ajustado para dejar espacio al contador */
+.lupa .lupa-next { right: 86px; } /* Mantener posición */
+.lupa .lupa-prev.visible,
+.lupa .lupa-next.visible { display: inline-flex; opacity: 1; }
+
 .lupa .lupa-counter {
-  display: inline-block;
+  display: none;
   position: absolute;
-  top: 8px;
-  right: 56px;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 122px; /* Ajustado para estar a la izquierda del botón 'next' */
   font-size: 12px;
   color: #213344;
   background: rgba(255,255,255,0.9);
@@ -367,11 +378,11 @@
     
     .footer-content {
       display: grid;
-      grid-template-columns: repeat(3, 1fr); /* 3 columnas de igual ancho */
+      grid-template-columns: 1fr 2fr 1fr; /* Columna central más ancha */
       gap: 2rem;
       max-width: 1100px; /* Ancho máximo para el contenido del footer */
       margin: 0 auto; /* Centra el contenedor */
-      margin-bottom: 2rem;
+      margin-bottom: 2rem; /* Alinea los items al inicio (arriba) */
       align-items: start; /* Alinea los items al inicio (arriba) */
     }
     
@@ -403,6 +414,11 @@
       color: #fff;
     }
     
+    .footer-column .contact-list li {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
     .footer-bottom {
       text-align: center;
       padding-top: 1.5rem;
@@ -410,6 +426,23 @@
       font-size: 0.9rem;
       color: #7f8c8d;
     }
+    .social-icons {
+      margin-top: 1rem;
+      display: flex;
+      gap: 0.8rem;
+    }
+    .social-icons a {
+      color: #bdc3c7;
+      background: rgba(255,255,255,0.08);
+      width: 38px;
+      height: 38px;
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 50%;
+      transition: background-color 0.3s, color 0.3s;
+    }
+    .social-icons a:hover { color: #fff; background: var(--primary); }
 
     /* --- Estilos para la sección Project Hero (Proyecto Actual) --- */
     .project-hero {
@@ -868,6 +901,47 @@
       .apt-card img { height: 220px; }
     }
 
+/* New apartment cards style for Proyecto-actual: two clean cards side-by-side */
+.apartment-cards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  align-items: stretch;
+  justify-items: center;
+  margin-top: 1rem;
+}
+.apartment-card {
+  width: 100%;
+  max-width: 420px;
+  background: #ffffff;
+  border-radius: 14px;
+  padding: 1.4rem;
+  box-shadow: 0 12px 28px rgba(25,43,61,0.06);
+  border: 1px solid rgba(25,43,61,0.04);
+  text-align: center;
+  color: var(--text);
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+.apartment-card h4 { font-size: 1.25rem; margin: 0; color: var(--primary); font-weight:700; }
+.apartment-card .apt-area { color: #556972; font-weight:600; }
+.apartment-card .apt-desc { color: #435566; font-size: 0.98rem; margin: 0.4rem 0 0.2rem; line-height:1.45; }
+.apartment-card .apt-details { list-style:none; padding:0; margin:0.2rem 0 0.6rem; color:#4b646f; }
+.price-block { margin-top: 0.4rem; }
+.price-label { color:#6b7f88; font-size:0.95rem; }
+.price-amount { font-size:1.2rem; color: #0f1720; font-weight:800; margin-top:6px; }
+.price-breakdown { color:#3b4b54; font-size:0.95rem; margin-top:0.6rem; text-align:left; }
+.price-breakdown div { margin: 6px 0; }
+.card-actions { margin-top: 12px; }
+.card-actions .request-btn { background: linear-gradient(180deg,var(--primary), #122233) !important; color: #fff !important; padding: 0.6rem 0.9rem; border-radius: 10px; }
+
+@media (max-width: 900px) {
+  .apartment-cards { grid-template-columns: 1fr; padding: 0 1rem; }
+  .apartment-card { max-width: 100%; }
+  .price-breakdown { text-align:left; }
+}
+
 /* --- Nuevos estilos adicionales para rediseño moderno --- */
 /* Progress bar */
 #scroll-progress { position: fixed; top: 0; left: 0; width: 100%; height: 6px; z-index: 9999; pointer-events: none; }
@@ -899,6 +973,7 @@
 /* Tabs container styled as a light pill bar */
 .project-details .tabs {
   display: flex;
+  flex-wrap: wrap; /* Permite que las pestañas se envuelvan en pantallas pequeñas */
   gap: 0.6rem;
   margin-bottom: 1rem;
   padding: 8px;
@@ -1050,6 +1125,86 @@
   .project-details { padding: 1rem; }
 }
 
+/* =========================
+   Mobile / Responsive fixes
+   - Footer stacking & social icons
+   - Hero CTA wrapping
+   - Projects images responsive heights
+   - Hide native search clear on mobile (use custom .lupa-clear)
+   - Tweak project-details spacing
+   ========================= */
+
+@media (max-width: 900px) {
+  /* Footer: stack columns, left-align content and increase padding for touch */
+  footer {
+    padding: 2rem 0 1.5rem;
+  }
+  .footer-content {
+    grid-template-columns: 1fr !important;
+    gap: 1.25rem !important;
+    padding: 0 1rem;
+    max-width: 100%;
+    align-items: start;
+  }
+  .footer-column { text-align: center; }
+  .footer-column h3 { margin-bottom: 0.6rem; }
+  .footer-column p, .footer-column li { font-size: 0.95rem; line-height: 1.4; }
+  /* Social icons in footer should display inline and be touch-friendly */
+  .footer-column .social-icons {
+    justify-content: center;
+  }
+  .footer-column .contact-list li {
+    justify-content: center;
+  }
+  .footer-column .social-icons a { display: inline-flex; align-items: center; gap: 8px; }
+  .footer-column .social-icons a { width: 36px; height: 36px; justify-content: center; border-radius: 6px; }
+
+  /* Hero CTAs: wrap and center, avoid overlap */
+  .hero .cta, .hero-cta { display: flex !important; gap: 12px !important; flex-wrap: wrap !important; justify-content: center !important; }
+  .cta-btn, .hero .btn-ctc { 
+    min-width: 140px; 
+    padding: 0.7rem 1.1rem; 
+    display: inline-block;
+    margin-bottom: 0.5rem;
+  }
+
+  /* Projects images: prefer fluid height and limit max height to avoid very tall images on mobile */
+  .projects-clone .project-images img,
+  .projects-clone .project-images img.split-left,
+  .projects-clone .project-images img.split-right {
+    width: 100% !important;
+    height: auto !important;
+    max-height: 420px !important;
+    object-fit: cover !important;
+    margin: 0 auto !important;
+    display: block !important;
+    border-radius: 18px !important;
+  }
+
+  /* Project details: give tab panels more breathing room on small screens */
+  .tab-panels { padding: 1rem !important; }
+  .tab-panel { padding: 0.6rem 0 !important; }
+}
+
+/* Hide native clear/cancel buttons for input[type=search] inside .lupa so custom .lupa-clear is used */
+.lupa input[type="search"]::-webkit-search-decoration,
+.lupa input[type="search"]::-webkit-search-cancel-button,
+.lupa input[type="search"]::-webkit-search-results-button,
+.lupa input[type="search"]::-webkit-search-results-decoration {
+  -webkit-appearance: none;
+  display: none;
+}
+/* Edge/IE clear */
+.lupa input[type="search"]::-ms-clear,
+.lupa input[type="search"]::-ms-reveal { display: none; }
+
+/* Slightly reduce CTA buttons overlap risk on portrait narrow screens */
+@media (max-width: 420px) {
+  .cta-btn { min-width: 120px; padding: 0.6rem 0.9rem; font-size: 0.95rem; }
+  .lupa:hover { width: 290px; }
+  .lupa:hover input { width: calc(290px - 140px); }
+}
+
 /* Screen-reader only but focusable utility (keeps element accessible) */
 .sr-only { position: absolute !important; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
 
@@ -1084,12 +1239,26 @@
 /* Hide decorative white strip globally (use gap instead) */
 .projects-clone .project-images::before { display: none !important; }
 
+/* Estilo para una sola imagen en la lista de proyectos */
+.projects-clone .project-images .single-image {
+  width: 100%;
+  height: 640px; /* Misma altura que la imagen principal en el layout de dos */
+  object-fit: cover;
+  border-radius: 28px;
+  box-shadow: 0 18px 46px rgba(25,43,61,0.06);
+  display: block;
+  margin: 0 auto; /* Centrar la imagen */
+}
+
 @media (max-width: 1200px) {
   /* Tablet / small desktop: reduce image heights and make overlap gentler */
   .projects-clone .project-images img.split-left { height: 480px; }
   .projects-clone .project-images img.split-right { height: 460px; margin-left: 12px; transform: translateY(10px); }
   .projects-clone .project-images img { border-radius: 22px; }
   .project-hero { height: 75vh; }
+}
+@media (max-width: 1200px) {
+  .projects-clone .project-images .single-image { height: 480px; border-radius: 22px; }
 }
 
 @media (max-width: 900px) {
@@ -1099,6 +1268,7 @@
   .projects-clone .project-images img.split-left,
   .projects-clone .project-images img.split-right { width:48%; height:260px; transform:none; margin-left:0; border-radius:18px; }
   /* On very small screens, show each image full-width stacked */
+  .projects-clone .project-images .single-image { width: 100%; height: 260px; border-radius: 18px; }
   @media (max-width: 520px) {
     .projects-clone .project-images { flex-direction: column; gap: 0.8rem; }
     .projects-clone .project-images img.split-left,
@@ -1122,4 +1292,3 @@
   .projects-clone .project-images img { width: 48%; height: 260px; }
   .projects-clone .project-desc { padding: 1rem 0; }
 }
-
