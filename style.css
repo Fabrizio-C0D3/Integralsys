@@ -354,7 +354,7 @@
       align-items: center;
       text-align: center;
       padding: 0 2rem;
-      background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('imagenes/Edificio.png');
+      background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('Imagenes/Edificio.png');
       background-size: cover;
       background-position: center;
       color: #fff; /* Cambia el color del texto a blanco para que contraste */
@@ -1326,3 +1326,4 @@
   .projects-clone .project-images img { width: 48%; height: 260px; }
   .projects-clone .project-desc { padding: 1rem 0; }
 }
+
