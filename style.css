@@ -1,15 +1,197 @@
-    /* Estilo para el texto resaltado por la búsqueda */
- mark {
-  background-color: #ffdd57; /* Un color amarillo más suave */
-  color: #333; /* Color de texto oscuro para contraste */
-  padding: 0 2px; /* Pequeño espaciado horizontal */
-  border-radius: 3px; /* Bordes redondeados */
-  box-shadow: 0 0 5px rgba(255, 221, 87, 0.5); /* Un ligero brillo */
+/* Más margen superior al logo de la navbar */
+.navbar-brand img {
+  margin-top: 15px;
+}
+/* Modal de zoom para galería de imágenes */
+.img-modal {
+  position: fixed;
+  z-index: 1200;
+  left: 0; top: 0; width: 100vw; height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  transition: opacity 0.2s;
+}
+.img-modal-backdrop {
+  position: absolute;
+  left: 0; top: 0; width: 100vw; height: 100vh;
+  background: rgba(0,0,0,0.65);
+  z-index: 1;
+}
+.img-modal-dialog {
+  position: relative;
+  z-index: 2;
+  background: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  max-width: 96vw;
+  max-height: 92vh;
+}
+.img-modal-dialog img {
+  width: auto;
+  height: auto;
+  max-width: none;
+  max-height: none;
+}
+.img-modal-close {
+  position: absolute;
+  top: -18px;
+  right: -18px;
+  background: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 38px;
+  height: 38px;
+  font-size: 2rem;
+  color: #333;
+  box-shadow: 0 2px 8px 0 rgba(0,0,0,0.12);
+  cursor: pointer;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+}
+.img-modal-close:hover {
+  background: #f2f2f2;
+}
+@media (max-width: 767px) {
+  .img-modal-dialog img {
+    max-width: 100vw;
+    max-height: 90vh;
+  }
+  .img-modal-dialog {
+    max-width: 100vw;
+    max-height: 100vh;
+  }
+}
+.image-column {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem 0 0.5rem 0.5rem;
+}
+.image-column img {
+  max-width: 370px;
+  width: 100%;
+  height: auto;
+  border-radius: 18px;
+  box-shadow: 0 4px 24px 0 rgba(0,0,0,0.10);
+  background: #f6f8f7;
+  object-fit: cover;
+  display: block;
+}
+@media (max-width: 991px) {
+  .image-column img {
+    max-width: 260px;
+    border-radius: 14px;
+  }
+}
+@media (max-width: 767px) {
+  .image-column {
+    justify-content: center;
+    padding: 1rem 0 0 0;
+  }
+  .image-column img {
+    max-width: 100vw;
+    border-radius: 10px;
+  }
+}
+.contact-panel .contact-image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  min-height: 220px;
+}
+.contact-panel .contact-image img.rotate-90 {
+  max-width: 340px;
+  max-height: 440px;
+  width: auto;
+  height: auto;
+  margin: 0 auto;
+  display: block;
+  box-shadow: 0 2px 12px 0 rgba(0,0,0,0.07);
+  border-radius: 12px;
+  background: #f6f8f7;
+}
+@media (max-width: 767px) {
+  .contact-panel .contact-image img.rotate-90 {
+    max-width: 220px;
+    max-height: 260px;
+  }
+}
+/* Utilidad para rotar imágenes 90 grados a la derecha */
+.rotate-90 {
+  transform: rotate(90deg);
+  transition: transform 0.3s;
+  display: inline-block;
+}
+/* Botones CTA (Contáctanos hoy, Proyecto Actual) */
+/* Botón CTA: área clickeable completa y accesible */
+.cta-btn {
+  background: #204a97;
+  color: #fff !important;
+  font-weight: 700;
+  border: none;
+  border-radius: 2em;
+  padding: 0.7em 2.2em;
+  font-size: 1.08rem;
+  margin: 0.5em 0.7em 0.5em 0;
+  display: inline-block;
+  text-decoration: underline;
+  transition: background 0.18s, box-shadow 0.18s, color 0.18s;
+  box-shadow: 0 2px 8px 0 rgba(32,74,151,0.10);
+  letter-spacing: 0.2px;
+  cursor: pointer;
+  text-align: center;
+  width: max-content;
+  min-width: 240px;
+  user-select: none;
+}
+.cta-btn:active {
+  background: #0d1d3a;
+}
+.cta-btn:hover, .cta-btn:focus {
+  background: #16336b;
+  color: #fff !important;
+  box-shadow: 0 4px 16px 0 rgba(32,74,151,0.18);
+  text-decoration: none;
+}
+@media (max-width: 600px) {
+  .cta-btn {
+    width: 100%;
+    min-width: unset;
+    margin: 0.5em 0;
+    font-size: 1rem;
+    padding: 0.7em 0;
+  }
+}
+.cta-btn:hover, .cta-btn:focus {
+  background: #16336b;
+  color: #fff !important;
+  box-shadow: 0 4px 16px 0 rgba(32,74,151,0.18);
+  text-decoration: none;
+}
+.cta-btn:active {
+  background: #0d1d3a;
+}
+@media (max-width: 600px) {
+  .cta-btn {
+    width: 100%;
+    margin: 0.5em 0;
+    font-size: 1rem;
+    padding: 0.7em 0;
+  }
 }
 
-    /* Estilos específicos para los resultados de búsqueda */
-    .copilot-search-hit { background-color: #ffd54d; color: #0f1720; padding: 0 2px; border-radius: 3px; }
-    .copilot-search-hit.active-hit { box-shadow: 0 6px 20px rgba(30,64,175,0.12); background: linear-gradient(90deg,#fff3c4,#ffd54d); outline: 3px solid rgba(29,78,216,0.14); outline-offset: 3px; }
+/* Ejemplo de uso en HTML:
+<a href="contact.html" class="cta-btn">Contáctanos hoy</a>
+<a href="Proyecto-actual.html" class="cta-btn">Proyecto Actual</a>
+*/
 
     * {
       margin: 0;
@@ -41,19 +223,10 @@
 }
 
 
-    
-    header h1 {
-      font-size: 1.5rem;
-      color: #2c3e50;
-    }
 
-    /* --- Estilos personalizados para la Barra de Navegación --- */
-    .navbar {
-      background-color: #fff !important; /* Fondo blanco para la barra */
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Sombra sutil para darle profundidad */
-    }
 
-/* Sticky navbar appearance when user scrolls past hero */
+
+/* Sticky navbar appearance when user scrolls past hero (más suave) */
 .navbar.sticky {
   position: fixed !important;
   top: 0;
@@ -64,16 +237,26 @@
   box-shadow: 0 10px 32px rgba(25,43,61,0.12) !important;
   transform: translateY(0) !important;
   opacity: 1 !important;
-  /* slower, smoother entrance with slight delay */
-  transition: opacity 0.9s cubic-bezier(.16,.84,.25,1) 80ms, transform 0.9s cubic-bezier(.16,.84,.25,1) 80ms, background 260ms ease 0ms, box-shadow 260ms ease 0ms;
+  transition: opacity 0.7s cubic-bezier(.16,.84,.25,1), transform 0.7s cubic-bezier(.16,.84,.25,1), background 260ms ease, box-shadow 260ms ease;
 }
 
-/* Start navbar slightly hidden to allow a smooth fade/slide in when sticky toggles */
-.navbar { transition: opacity 0.9s cubic-bezier(.16,.84,.25,1) 80ms, transform 0.9s cubic-bezier(.16,.84,.25,1) 1.1s; opacity: 1; }
-.navbar:not(.sticky) { transform: translateY(-8px); opacity: 1; }
+/* Navbar inicia levemente arriba y transparente para un fade/slide más elegante */
+.navbar {
+  transition: opacity 0.7s cubic-bezier(.16,.84,.25,1), transform 0.7s cubic-bezier(.16,.84,.25,1);
+  opacity: 1;
+  transform: translateY(-16px);
+}
+.navbar:not(.sticky) {
+  opacity: 1;
+  transform: translateY(-16px);
+}
 
-/* Smooth hide state: animate out before removing sticky to avoid abrupt jump */
-.navbar.sticky.sticky--hide { opacity: 0 !important; transform: translateY(-12px) !important; transition: opacity 0.48s cubic-bezier(.16,.84,.25,1), transform 0.48s cubic-bezier(.16,.84,.25,1); }
+/* Estado de ocultar sticky: fade out y slide up más suave */
+.navbar.sticky.sticky--hide {
+  opacity: 0 !important;
+  transform: translateY(-32px) !important;
+  transition: opacity 0.6s cubic-bezier(.16,.84,.25,1), transform 0.6s cubic-bezier(.16,.84,.25,1);
+}
 
 /* Small visual tweak when sticky to reduce navbar height on small screens */
 @media (max-width: 900px) {
@@ -89,67 +272,32 @@
 
     .navbar-nav .nav-link {
       color: #2c3e50 !important; /* Color de texto oscuro para los enlaces */
-      font-size: 18px; /* Tamaño de letra más grande */
-      margin: 0 10px !important;  /* Espacio horizontal entre los enlaces */
+      font-size: 18px !important; /* Tamaño de letra más grande */
+      margin: 0; /* Eliminar margen individual, usar gap en el contenedor */
       transition: 0.3s; /* Transición suave para todas las propiedades */
-
     }
 
     .nav-link-active{
-    
+      text-decoration: none !important;
       color: #006ee4 !important;
       font-size: 18px !important; /* Tamaño de letra más grande */
       font-weight: normal;
  
     }
 
-    /* Asegurar que los enlaces del navbar NO tengan subrayado en todos los estados */
-    .navbar-nav .nav-link,
-    .navbar-nav .nav-link:link,
-    .navbar-nav .nav-link:visited,
-    .navbar-nav .nav-link:hover,
-    .navbar-nav .nav-link:focus,
-    .navbar-nav .nav-link:active,
-    .nav-link-active,
-    .nav-link-active:link,
-    .nav-link-active:visited,
-    .nav-link-active:hover,
-    .nav-link-active:focus,
-    .nav-link-active:active {
-      text-decoration: none !important;
-    }
-
-    /* Provide an accessible focus ring for keyboard users (use :focus-visible when supported) */
-
 
     /* Añadimos esta regla para alinear verticalmente todos los elementos del menú */
     .navbar-nav {
       align-items: center;
+      display: flex;
+      gap: 2.2rem !important; /* Espaciado horizontal uniforme entre los enlaces */
     }
 
     /* Efecto al pasar el cursor o cuando el enlace está activo */
     .navbar-nav .nav-link:hover {
       color: #006ee4 !important; /* Cambia a un azul más oscuro */
-      font-size: 18px !important;
-      font-weight: normal !important;
+      font-size: 20px !important;
     }
-
-
-
-    .lupa{
-    position: relative;
-    width: 50px;
-    height: 50px;
-    background-color: white;
-    border-radius: 25px;
-    border: 4px solid white;
-    transition: all 1.2s;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-    margin-right: 1%;
-}
 
 .btn-ctc {
   background-color: #0b3d91;
@@ -179,124 +327,10 @@
 
 /* Efecto hover para el botón de contacto */
 #btn-contact:hover {
-  background-color: #2c3e50 !important; /* Aclaramos el fondo al pasar el cursor */
-  /* Reseteamos los estilos heredados del nav-link para que no cambien en el hover */
-  font-weight: 300 !important;
-  font-size: 1.1rem !important;
+  background-color: #192b3d !important; /* Aclaramos el fondo al pasar el cursor */
   transition: 0.3s;
 }
-/* Limit search input styles to the `.lupa` search widget so normal form inputs keep Bootstrap defaults */
-.lupa input{
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: calc(100% - 50px);
-  height: 42.5px;
-  line-height: 30px;
-  outline: 0;
-  border: 0;
-  display: none;
-  font-size: 1em;
-  border-radius: 20px;
-  padding: 0 20px;
-  box-sizing: border-box;
-}
 
-.fa-solid{
-            box-sizing: border-box;
-            padding: 10px;
-            width: 42.5px;
-            height: 42.5px;
-            position: absolute;
-            top: 0;
-            right: 0;
-            border-radius: 50%;
-            color: #192b3d;
-            text-align: center;
-            font-size: 1.2em;
-            transition: all 1.2s;
-}
-
-.lupa:hover{
-    width: 300px;
-    cursor: pointer;
-}
-
-.lupa:hover input {
-    display: block; /* Asegura que el input sea visible */
-    width: calc(100% - 214px); /* Ajusta el ancho para dejar espacio a los controles */
-}
-
-.lupa:hover .fa-solid{
-    background-color: #192b3d;
-    color: #ffffff;
-}
-
-/* Botón para limpiar la búsqueda dentro del widget .lupa */
-.lupa {
-  position: relative;
-}
-.lupa .lupa-clear {
-  display: none;
-  position: absolute;
-  right: 50px;
-  top: 50%;
-  transform: translateY(-50%);
-  align-items: center;
-  justify-content: center;
-  width: 28px;
-  height: 28px;
-  border-radius: 50%;
-  border: none;
-  background: rgba(0,0,0,0.06);
-  color: #213344;
-  cursor: pointer;
-  font-size: 18px;
-  line-height: 1;
-  padding: 0;  opacity: 0;
-  transition: opacity 150ms ease-in-out;
-}
-.lupa .lupa-clear:hover { background: rgba(0,0,0,0.12); }
-.lupa .lupa-clear:focus { outline: 2px solid rgba(29,78,216,0.18); }
-.lupa .lupa-clear.visible { display: inline-flex; opacity: 1; }
-
-/* Controles de navegación de resultados (Prev / Counter / Next) dentro del widget */
-.lupa .lupa-prev,
-.lupa .lupa-next {
-  display: none;
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 28px;
-  height: 28px;
-  border-radius: 6px;
-  border: none;
-  background: rgba(25,43,61,0.06);
-  color: #213344;
-  cursor: pointer;
-  align-items: center;
-  justify-content: center;
-  font-size: 12px;
-  opacity: 0;
-  transition: opacity 150ms ease-in-out;
-}
-.lupa .lupa-prev { right: 166px; } /* Ajustado para dejar espacio al contador */
-.lupa .lupa-next { right: 86px; } /* Mantener posición */
-.lupa .lupa-prev.visible,
-.lupa .lupa-next.visible { display: inline-flex; opacity: 1; }
-
-.lupa .lupa-counter {
-  display: none;
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  right: 122px; /* Ajustado para estar a la izquierda del botón 'next' */
-  font-size: 12px;
-  color: #213344;
-  background: rgba(255,255,255,0.9);
-  padding: 2px 6px;
-  border-radius: 6px;
-}
 
 /* Animación para que la barra de navegación baje suavemente */
 @keyframes slideDown {

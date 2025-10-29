@@ -32,7 +32,18 @@
           <a class="nav-link-active" href="Proyectos.html">Proyectos</a>
         </li>
       </ul>
-      <!-- Buscador eliminado -->
+      <div class="lupa" role="search">
+        <input type="search" placeholder="Qué deseas buscar?">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <button type="button" class="lupa-clear" aria-label="Limpiar búsqueda">&times;</button>
+        <button type="button" class="lupa-prev" aria-label="Anterior">◀</button>
+        <div class="lupa-counter" aria-live="polite"></div>
+        <button type="button" class="lupa-next" aria-label="Siguiente">▶</button>
+      </div>
+      <form class="d-flex" role="search">
+        <!-- <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form> -->
       <span class="navbar-text">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
@@ -55,18 +66,6 @@
       <p class="hero-sub">Explora nuestros edificios y desarrollos recientes. Aquí encontrarás ejemplos de proyectos con acabados y diseños que representen nuestra calidad.</p>
       <div class="hero-cta">
         <button id="cta-view-apartments" class="cta-btn">Conoce más</button>
-        <script>
-          document.addEventListener('DOMContentLoaded', function() {
-            var ctaBtn = document.getElementById('cta-view-apartments');
-            var tulipanesSection = document.getElementById('tulipanes');
-            if (ctaBtn && tulipanesSection) {
-              ctaBtn.addEventListener('click', function(e) {
-                e.preventDefault();
-                tulipanesSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-              });
-            }
-          });
-        </script>
       </div>
       <i class="fa-solid fa-chevron-down scroll-indicator" style="color: aqua;"></i>
     </div>
@@ -124,10 +123,11 @@
         <!-- Ejemplo 3 -->
         <div class="project-row">
           <div class="project-images">
-            <img class="single-image" src="Imagenes/Ibiza.png" alt="Proyecto Ibiza">
+            <img class="split-left" src="Imagenes/Ibiza.png" alt="Ibiza - izquierda">
+            <img class="split-right" src="Imagenes/Ibiza.png" alt="Ibiza - derecha">
           </div>
           <div class="project-desc">
-            <h3>Ibiza</h3>
+            <h3>Ibisa</h3>
             <p>Servicios de decoración y mejora interior para apartamentos urbanos.</p>
             <p class="muted"> Cra. 49 #124-27 Barrio Alambra</p>
           </div>
@@ -161,9 +161,8 @@
       <div class="footer-column">
         <h3>Contáctanos</h3>
         <ul class="contact-list">
-          <li class="contact-list"><a href="contact.html">Contáctanos</a></li>
-          <li><a href="mailto:gerencia@integralsys.com.co">gerencia@integralsys.com.co</a></li>
-          <li><a href="tel:+573160579777">+57 3160579777</a></li>
+          <li>gerencia@integralsys.com.co</li>
+          <li>+57 3160579777</li>
         </ul>
         <div class="social-icons">
           <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>

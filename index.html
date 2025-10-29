@@ -9,15 +9,14 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+  
 </head>
 <body>
 
   <!-- Encabezado -->
   <header>
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <nav class="navbar navbar-expand-lg bg-body-tertiary" id="mainNavbar">
   <div class="container">
     <a class="navbar-brand" href="index.html"><img src="imagenes/Logo-removebg.png" alt="" width="100px"></a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -26,7 +25,7 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item ">
-          <a class="nav-link-active" aria-current="page" href="index.html">Inicio</a>
+          <a class="nav-link-active" aria-current="page" href="#">Inicio</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="Proyecto-actual.html">Proyecto Actual</a>
@@ -35,18 +34,7 @@
           <a class="nav-link" href="Proyectos.html">Proyectos</a>
         </li>
       </ul>
-      <div class="lupa" role="search">
-        <input type="search" placeholder="Qué deseas buscar?">
-        <i class="fa-solid fa-magnifying-glass"></i>
-        <button type="button" class="lupa-clear" aria-label="Limpiar búsqueda">&times;</button>
-        <button type="button" class="lupa-prev" aria-label="Anterior">◀</button>
-        <div class="lupa-counter" aria-live="polite"></div>
-        <button type="button" class="lupa-next" aria-label="Siguiente">▶</button>
-      </div>
-      <form class="d-flex" role="search">
-        <!-- <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
-        <button class="btn btn-outline-success" type="submit">Search</button>
-      </form> -->
+
       <span class="navbar-text">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
@@ -63,43 +51,44 @@
 
 <main>
   <!-- Sección principal -->
+   
   <section class="hero">
-    <div data-aos="fade-up"
-    data-aos-duration="1000"><h2>Solo faltas TÚ</h2>
+    <div data-aos="fade-down" data-aos-duration="1000">
+    <h2>Solo faltas TÚ</h2>
     <p>Construimos espacios de vivienda para ti</p>
     <p>En Integral sys, no solo construimos apartamentos, sino que creamos espacios donde los sueños se hacen realidad. Con un enfoque en la calidad y la innovación, nos dedicamos a ofrecer cinco tipos de apartamentos que se adaptan a tus necesidades y estilo de vida.</p>
-    
-    <div class="hero-cta">
-      <a class="btn-ctc" href="contact.html">Contáctanos hoy</a>
-      <a class="btn-ctc" href="Proyecto-actual.html">Proyecto Actual</a>
     </div>
+    <div style="display:flex; flex-wrap:wrap; gap:1.2em; justify-content:center; margin-top:2em;">
+      <div data-aos="fade-right" data-aos-duration="1000"><a href="contact.html" class="cta-btn">Contáctanos hoy</a></div>
+      <div data-aos="fade-left" data-aos-duration="1000"><a href="Proyecto-actual.html" class="cta-btn">Proyecto Actual</a></div>
+    
     </div>
   </section>
-
   <!-- Apartamentos destacados -->
-   <div data-aos="fade-up"
-    data-aos-duration="1000">
-  <section class="apartments">
-    
-    <div class="apartment-card">
-      <img src="https://integralsys.odoo.com/web/image/363-b79ab046/Espacios.svg" alt="Apartamentos Modernos">
+  <section class="apartments" >
+    <div data-aos="fade-up" data-aos-duration="1000">
+    <div class="apartment-card text-center">
+      <img src="https://integralsys.odoo.com/web/image/363-b79ab046/Espacios.svg" alt="Apartamentos Modernos" style="display:block;margin:0 auto 1rem auto;max-width:160px;width:70%;">
       <h3>Apartamentos Modernos</h3>
       <p>Descubre apartamentos con diseños contemporáneos y acabados de alta calidad para una vida llena de estilo y confort.</p>
     </div>
+    </div>
 
-    <div class="apartment-card">
-      <img src="https://integralsys.odoo.com/web/image/364-c00c2715/amplios.svg" alt="Amplios Espacios">
+<div data-aos="fade-up" data-aos-duration="1000">
+    <div class="apartment-card text-center">
+      <img src="https://integralsys.odoo.com/web/image/364-c00c2715/amplios.svg" alt="Amplios Espacios" style="display:block;margin:0 auto 1rem auto;max-width:160px;width:70%;">
       <h3>Amplios Espacios</h3>
       <p>Disfruta de espacios abiertos y luminosos que te permitirán vivir de manera cómoda y con total libertad.</p>
     </div>
-
-    <div class="apartment-card">
-      <img src="https://integralsys.odoo.com/web/image/362-f2c632c1/vista2.svg" alt="Vistas Increíbles">
+</div>
+<div data-aos="fade-up" data-aos-duration="1000">
+    <div class="apartment-card text-center">
+      <img src="https://integralsys.odoo.com/web/image/362-f2c632c1/vista2.svg" alt="Vistas Increíbles" style="display:block;margin:0 auto 1rem auto;max-width:160px;width:70%;">
       <h3>Vistas Increíbles</h3>
       <p>Contempla vistas desde tu balcón y disfruta de la iluminación de tu entorno todos los días.</p>
     </div>
+</div>
   </section>
-  </div>
 </main>
 
   <!-- Pie de página -->
@@ -119,16 +108,11 @@
       </div>
       <div class="footer-column">
         <h3>Contáctanos</h3>
-        <ul class="contact-list">
-          <li>gerencia@integralsys.com.co</li>
-          <li>+57 3160579777</li>
+        <ul>
+          <li class="contact-list"><a href="contact.html">Contáctanos</a></li>
+          <li><a href="mailto:gerencia@integralsys.com.co">gerencia@integralsys.com.co</a></li>
+          <li><a href="tel:+573160579777">+57 3160579777</a></li>
         </ul>
-        <div class="social-icons">
-          <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-          <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-          <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-        </div>
-    
       </div>
     </div>
     <div class="footer-bottom">
@@ -136,9 +120,41 @@
     </div>
   </footer>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
-<script src="script.js"></script>
-  <script>
-  AOS.init();
+<script>
+// Sticky navbar on scroll for index.html
+document.addEventListener('DOMContentLoaded', function() {
+  var navbar = document.getElementById('mainNavbar');
+  if (!navbar) return;
+  var lastScrollY = window.scrollY;
+  var pinned = false;
+  var stickyClass = 'sticky';
+  var stickyHideClass = 'sticky--hide';
+  var threshold = 80;
+
+  function checkSticky() {
+    if (window.scrollY > threshold) {
+      if (!pinned) {
+        navbar.classList.add(stickyClass);
+        pinned = true;
+        document.body.style.paddingTop = navbar.offsetHeight + 'px';
+      }
+    } else {
+      if (pinned) {
+        navbar.classList.remove(stickyClass);
+        pinned = false;
+        document.body.style.paddingTop = '';
+      }
+    }
+  }
+  window.addEventListener('scroll', checkSticky, { passive: true });
+  window.addEventListener('resize', checkSticky);
+  checkSticky();
+});
 </script>
+<script src="script.js"></script>
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
 </body>
 </html>

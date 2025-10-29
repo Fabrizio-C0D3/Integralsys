@@ -30,18 +30,7 @@
           <a class="nav-link" href="Proyectos.html">Proyectos</a>
         </li>
       </ul>
-      <div class="lupa" role="search">
-        <input type="search" placeholder="Qué deseas buscar?">
-        <i class="fa-solid fa-magnifying-glass"></i>
-        <button type="button" class="lupa-clear" aria-label="Limpiar búsqueda">&times;</button>
-        <button type="button" class="lupa-prev" aria-label="Anterior">◀</button>
-        <div class="lupa-counter" aria-live="polite"></div>
-        <button type="button" class="lupa-next" aria-label="Siguiente">▶</button>
-      </div>
-      <form class="d-flex" role="search">
-        <!-- <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
-        <button class="btn btn-outline-success" type="submit">Search</button>
-      </form> -->
+      <!-- Buscador eliminado -->
       <span class="navbar-text">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
@@ -60,10 +49,10 @@
   <section class="project-hero">
     <div class="hero-content">
       <h1 class="hero-title">BRACAMONTE</h1>
-      <p class="project-location">Ubicación: Ciudad - Zona exclusiva</p>
+      <p class="project-location">Ubicación: Calle 75#77b-45 - Zona exclusiva</p>
       <p class="hero-sub">Un proyecto diseñado para combinar elegancia, funcionalidad y confort. Descubre tu próximo hogar en un entorno moderno y natural.</p>
       <div class="hero-cta">
-        <button id="cta-view-apartments" class="cta-btn">Ver apartamentos disponibles</button>
+  <button id="cta-view-apartments" class="cta-btn" type="button">Ver apartamentos disponibles</button>
       </div>
       <i class="fa-solid fa-chevron-down scroll-indicator" style="color: aqua;"></i>
     </div>
@@ -76,7 +65,7 @@
     
     <div class="text-column">
 
-  <section class="welcome-hero animate-on-scroll">
+  <section class="welcome-hero animate-on-scroll" id="bienvenida">
           <div class="welcome-content">
             <h2>Bienvenido al proyecto Bracamonte</h2>
             <p>Explora los detalles del proyecto, sus acabados y las ventajas de vivir en este desarrollo pensado para tu comodidad.</p>
@@ -93,7 +82,7 @@
       
     </div>
     <div class="image-column">
-      <img src="Imagenes/BRACAMONTE.png" alt="Edificio Bracamonte">
+      <img src="Imagenes/BRACAMONTE2.png" alt="Edificio Bracamonte">
       
     </div>
     
@@ -118,17 +107,17 @@
                 <div class="details-left">
                   <h4>Información general</h4>
                   <ul class="info-list">
-                    <li><strong>Estado:</strong> <span class="status badge">En construcción</span></li>
-                    <li><strong>Inicio de obra:</strong> mayo de 2023</li>
-                    <li><strong>Entrega estimada:</strong> febrero de 2026</li>
-                    <li><strong>Pisos:</strong> 18</li>
-                    <li><strong>Torres por piso:</strong> 6</li>
+                      <li><strong>Estado:</strong> <span class="status badge bg-warning text-white"><i class="fa fa-tag me-1"></i>En ventas</span></li>
+                    <li><strong>Inicio de obra estimada:</strong> Enero de 2026</li>
+                    <li><strong>Entrega estimada:</strong> Enero de 2027</li>
+                    <li><strong>Pisos:</strong>5</li>
+                    <li><strong>Apartamentos por piso:</strong>4</li>
                   </ul>
                 </div>
                 <div class="details-right">
                   <h4>Ubicación privilegiada</h4>
                   <ul class="check-list">
-                    <li><i class="fa-solid fa-circle-check"></i> A 5 minutos de TransMilenio</li>
+                    <li><i class="fa-solid fa-circle-check"></i> A 10 minutos de TransMilenio</li>
                     <li><i class="fa-solid fa-circle-check"></i> Cerca a centros comerciales</li>
                     <li><i class="fa-solid fa-circle-check"></i> Zona de restaurantes y cafés</li>
                     <li><i class="fa-solid fa-circle-check"></i> Acceso rápido a vías principales</li>
@@ -140,11 +129,11 @@
 
               <div class="construction-box">
                 <div class="construction-label">Avance de construcción</div>
-                <div class="construction-progress" data-progress="65">
+                <div class="construction-progress" data-progress="0">
                   <div class="construction-progress-track">
-                    <div class="construction-progress-fill" style="width:65%"></div>
+                    <div class="construction-progress-fill" style="width:0%"></div>
                   </div>
-                  <div class="construction-percent">65%</div>
+                  <div class="construction-percent text-secondary ">0%</div>
                 </div>
               </div>
             </div>
@@ -155,63 +144,53 @@
               <!-- Two clean, centered cards side-by-side for the two apartment options -->
               <div class="apartment-cards">
                 <div class="apartment-card">
-                  <h4>Apartamento Normal</h4>
-                  <div class="apt-area">Área: <strong>40 m²</strong></div>
-                  <p class="apt-desc">Consta de dos habitaciones, un baño, sala, comedor, cocina americana abierta y balcón. Se entrega terminado.</p>
-                  <div class="price-block">
-                    <div class="price-label">Valor total</div>
-                    <div class="price-amount">$272.132.000</div>
-                    <div class="price-breakdown">
-                      <div>Inicial (30%): <strong>$81.639.600</strong></div>
-                      <div>Separación: <strong>$20.000.000</strong></div>
-                      <div>Resto inicial: <strong>$61.639.600</strong></div>
-                      <div>16 cuotas: <strong>$3.852.475</strong></div>
-                      <div>A la entrega: <strong>$190.492.400</strong></div>
+                  <h4 class="apt-title">Apartamento Normal</h4>
+                  <div class="apt-area mb-1"><i class="fa fa-ruler-combined me-1"></i> <strong>40 m²</strong></div>
+                  <p class="apt-desc mb-2">2 habitaciones, 1 baño, sala-comedor, cocina americana y balcón. Ideal para quienes buscan comodidad y funcionalidad.</p>
+                  <div class="price-block mb-1">
+                    <div class="price-amount fw-bold text-primary">$272.132.000</div>
+                    <div class="price-breakdown small text-secondary">
+                      <span class="d-block">Inicial: <strong>$81.639.600</strong> &nbsp;|&nbsp; Separación: <strong>$20M</strong></span>
+                      <span class="d-block">16 cuotas: <strong>$3.852.475</strong></span>
                     </div>
                   </div>
-                  <div class="card-actions">
-                    <button type="button" class="request-btn" data-apt-name="Apartamento Normal" data-apt-area="40 m²" data-apt-price="$272.132.000">Conocer este apartamento</button>
+                  <div class="card-actions mt-2">
+                    <button type="button" class="request-btn btn btn-primary w-100" data-apt-id="apt-normal" data-apt-name="Apartamento Normal" data-apt-area="40 m²" data-apt-price="$272.132.000">Ver detalles</button>
                   </div>
                 </div>
 
                 <div class="apartment-card">
-                  <h4>Apartamento Grande</h4>
-                  <div class="apt-area">Área: <strong>60 m²</strong></div>
-                  <p class="apt-desc">Consta de tres habitaciones, dos baños, sala, comedor, cocina americana abierta y balcón. Se entrega terminado.</p>
-                  <div class="price-block">
-                    <div class="price-label">Valor total</div>
-                    <div class="price-amount">$436.066.000</div>
-                    <div class="price-breakdown">
-                      <div>Inicial (30%): <strong>$130.819.800</strong></div>
-                      <div>Separación: <strong>$20.000.000</strong></div>
-                      <div>Resto inicial: <strong>$110.819.800</strong></div>
-                      <div>16 cuotas: <strong>$6.926.238</strong></div>
-                      <div>A la entrega: <strong>$305.246.200</strong></div>
+                  <h4 class="apt-title">Apartamento Grande</h4>
+                  <div class="apt-area mb-1"><i class="fa fa-ruler-combined me-1"></i> <strong>60 m²</strong></div>
+                  <p class="apt-desc mb-2">3 habitaciones, 2 baños, sala-comedor, cocina americana y balcón. Espacio amplio para familias o quienes buscan mayor confort.</p>
+                  <div class="price-block mb-1">
+                    <div class="price-amount fw-bold text-primary">$436.066.000</div>
+                    <div class="price-breakdown small text-secondary">
+                      <span class="d-block">Inicial: <strong>$130.819.800</strong> &nbsp;|&nbsp; Separación: <strong>$20M</strong></span>
+                      <span class="d-block">16 cuotas: <strong>$6.926.238</strong></span>
                     </div>
                   </div>
-                  <div class="card-actions">
-                    <button type="button" class="request-btn" data-apt-name="Apartamento Grande" data-apt-area="60 m²" data-apt-price="$436.066.000">Conocer este apartamento</button>
+                  <div class="card-actions mt-2">
+                    <button type="button" class="request-btn btn btn-primary w-100" data-apt-id="apt-grande" data-apt-name="Apartamento Grande" data-apt-area="60 m²" data-apt-price="$436.066.000">Ver detalles</button>
                   </div>
                 </div>
               </div>
             </div>
 
             <div class="tab-panel" id="amen" role="tabpanel" hidden>
-              <h3>Amenidades y servicios</h3>
+              <h3>Amenidades</h3>
               <div class="amenities-grid">
                 <ul class="amen-list">
-                  <li><i class="fa-solid fa-circle-check"></i> Gimnasio completamente equipado</li>
-                  <li><i class="fa-solid fa-circle-check"></i> Salón social con cocina integral</li>
                   <li><i class="fa-solid fa-circle-check"></i> Parqueadero cubierto</li>
-                  <li><i class="fa-solid fa-circle-check"></i> Zona de juegos infantiles</li>
                   <li><i class="fa-solid fa-circle-check"></i> Cuarto de bicicletas</li>
+                  <li><i class="fa-solid fa-circle-check"></i> Ascensores</li>
+                  <li><i class="fa-solid fa-circle-check"></i> Portones de parqueadero eléctricos</li>
+                  <li><i class="fa-solid fa-circle-check"></i> Acceso con huellas</li>
+                  <li><i class="fa-solid fa-circle-check"></i> Videoportero</li>
+                  <li><i class="fa-solid fa-circle-check"></i> Cámaras de seguridad y circuito cerrado</li>
                 </ul>
                 <ul class="amen-list">
-                  <li><i class="fa-solid fa-circle-check"></i> Piscina con zona de hidromasaje</li>
-                  <li><i class="fa-solid fa-circle-check"></i> Zona BBQ con terraza</li>
-                  <li><i class="fa-solid fa-circle-check"></i> Portería y vigilancia 24/7</li>
-                  <li><i class="fa-solid fa-circle-check"></i> Coworking space</li>
-                  <li><i class="fa-solid fa-circle-check"></i> Ascensores de alta velocidad</li>
+                  
                 </ul>
               </div>
             </div>
@@ -219,29 +198,76 @@
             <div class="tab-panel" id="gal" role="tabpanel" hidden>
               <h3>Galería del proyecto</h3>
               <div class="gallery-grid">
-                <img src="Imagenes/BRACAMONTE.png" alt="Galería 1">
-                <img src="Imagenes/Plano a.png" alt="Galería 2">
-                <img src="Imagenes/Plano B.png" alt="Galería 3">
-                <img src="Imagenes/planoC.jpg" alt="Galería 4">
+                <img src="Imagenes/BRACAMONTE.png" alt="Galería 1" class="gallery-img zoomable">
+                <img src="Imagenes/PlanoA.png" alt="Galería 2" class="gallery-img zoomable">
+                <img src="Imagenes/PlanoB.png" alt="Galería 3" class="gallery-img zoomable">
+                <!-- Modal para zoom de imagen -->
+                <div id="imgModal" class="img-modal" tabindex="-1" aria-modal="true" style="display:none;">
+                  <div class="img-modal-backdrop"></div>
+                  <div class="img-modal-dialog">
+                    <button class="img-modal-close" aria-label="Cerrar">&times;</button>
+                    <img src="" alt="Imagen ampliada" id="imgModalImg">
+                  </div>
+                </div>
               </div>
             </div>
             
-            <!-- Panel para solicitudes / diseño mostrado cuando se pulsa 'Solicitar información' -->
-            <div class="tab-panel" id="contact" role="tabpanel" hidden>
+            <!-- Paneles individuales para solicitudes: uno por apartamento -->
+            <div class="tab-panel contact-panel-wrapper" id="contact-apt-normal" role="tabpanel" hidden>
               <div class="contact-panel">
                 <div class="contact-image">
-                  <img src="Imagenes/Plano a.png" alt="Diseño del apartamento">
+                  <img src="Imagenes/PlanoB.png" alt="Diseño Apartamento Normal">
                 </div>
                 <div class="contact-info">
-                  <h3 class="contact-title">Solicitar información</h3>
-                  <div id="selectedAptSummary" class="selected-apt" aria-live="polite" style="margin-bottom:0.6rem;"></div>
-                  <p class="lead">Aquí puedes ver el diseño del apartamento y dejar tus datos para que nos comuniquemos contigo. Incluye planos, acabados y demás detalles que te ayudarán a tomar una decisión.</p>
-                  <ul class="design-details">
-                    <li><strong>Tipo:</strong> Plano del apartamento / diseño</li>
-                    <li><strong>Área aproximada:</strong> 45m² - 120m² (según tipo)</li>
-                    <li><strong>Acabados:</strong> Piso en porcelanato, cocinas integrales, grifería moderna</li>
+                  <h3 class="contact-title mb-2">Apartamento Normal</h3>
+                  <div class="mb-2">
+                    <span class="badge bg-primary"><i class="fa fa-ruler-combined me-1"></i> 40 m²</span>
+                    <span class="badge bg-success ms-2"><i class="fa fa-dollar-sign me-1"></i> $272.132.000</span>
+                  </div>
+                  <p class="mb-2">Disfruta de un espacio moderno y funcional con 2 habitaciones, 1 baño, sala-comedor, cocina americana y balcón. Perfecto para quienes buscan comodidad y estilo en un ambiente acogedor.</p>
+                  <ul class="list-unstyled mb-2">
+                    <li><strong>Diseño:</strong> Plano abierto, excelente iluminación natural.</li>
+                    <li><strong>Acabados:</strong> Piso en porcelanato, cocina integral, grifería moderna.</li>
+                    <li><strong>Beneficios:</strong> Balcón privado, distribución eficiente, entrega terminada.</li>
                   </ul>
+                  <div class="mb-3">
+                    <span class="text-secondary small">Inicial: <strong>$81.639.600</strong> | Separación: <strong>$20M</strong> | 16 cuotas: <strong>$3.852.475</strong></span>
+                  </div>
+                  <p class="mb-3 text-success fw-semibold">¡Solicita información y asegura tu nuevo hogar hoy!</p>
+                  <form id="formContacto-apt-normal" class="contact-form" method="post" action="guardar_contacto.php">
+                    <input type="hidden" name="selected_apartment" value="Apartamento Normal">
+                    <div class="contact-actions">
+                      <button type="button" class="btn btn-outline-secondary close-contact">Cerrar</button>
+                    </div>
+                    <div class="contact-feedback" aria-live="polite"></div>
+                  </form>
+                </div>
+              </div>
+            </div>
 
+            <div class="tab-panel contact-panel-wrapper" id="contact-apt-grande" role="tabpanel" hidden>
+              <div class="contact-panel">
+                <div class="contact-image">
+                  <img src="Imagenes/PlanoA.png" alt="Diseño Apartamento Grande" class="rotate-90">
+                </div>
+                <div class="contact-info">
+                  <h3 class="contact-title mb-2">Apartamento Grande</h3>
+                  <div class="mb-2">
+                    <span class="badge bg-primary"><i class="fa fa-ruler-combined me-1"></i> 60 m²</span>
+                    <span class="badge bg-success ms-2"><i class="fa fa-dollar-sign me-1"></i> $436.066.000</span>
+                  </div>
+                  <p class="mb-2">Vive con mayor amplitud y confort en este apartamento de 3 habitaciones, 2 baños, sala-comedor, cocina americana y balcón. Ideal para familias o quienes buscan más espacio y calidad de vida.</p>
+                  <ul class="list-unstyled mb-2">
+                    <li><strong>Diseño:</strong> Espacios generosos, excelente ventilación y luz natural.</li>
+                    <li><strong>Acabados:</strong> Piso en porcelanato, cocina integral, grifería moderna.</li>
+                    <li><strong>Beneficios:</strong> Balcón privado, distribución inteligente, entrega terminada.</li>
+                  </ul>
+                  <div class="mb-3">
+                    <span class="text-secondary small">Inicial: <strong>$130.819.800</strong> | Separación: <strong>$20M</strong> | 16 cuotas: <strong>$6.926.238</strong></span>
+                  </div>
+                  <p class="mb-3 text-success fw-semibold">¡Solicita información y da el siguiente paso hacia tu nuevo hogar!</p>
+                  <form id="formContacto-apt-grande" class="contact-form" method="post" action="guardar_contacto.php">
+                    <input type="hidden" name="selected_apartment" value="Apartamento Grande">
                     <div class="contact-actions">
                       <button type="button" class="btn btn-outline-secondary close-contact">Cerrar</button>
                     </div>
@@ -289,8 +315,9 @@
       <div class="footer-column">
         <h3>Contáctanos</h3>
         <ul>
-          <li class="contact-list">gerencia@integralsys.com.co</li>
-          <li class="contact-list">+57 3160579777</li>
+          <li class="contact-list"><a href="contact.html">Contáctanos</a></li>
+          <li><a href="mailto:gerencia@integralsys.com.co">gerencia@integralsys.com.co</a></li>
+          <li><a href="tel:+573160579777">+57 3160579777</a></li>
         </ul>
         <div class="social-icons">
           <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
@@ -306,5 +333,32 @@
   </footer>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
   <script src="script.js"></script>
+  <script>
+    // Modal de zoom para galería
+    document.addEventListener('DOMContentLoaded', function() {
+      const modal = document.getElementById('imgModal');
+      const modalImg = document.getElementById('imgModalImg');
+      const closeBtn = document.querySelector('.img-modal-close');
+      const backdrop = document.querySelector('.img-modal-backdrop');
+      document.querySelectorAll('.gallery-img.zoomable').forEach(img => {
+        img.style.cursor = 'zoom-in';
+        img.addEventListener('click', function() {
+          modalImg.src = img.src;
+          modal.style.display = 'flex';
+          document.body.style.overflow = 'hidden';
+        });
+      });
+      function closeModal() {
+        modal.style.display = 'none';
+        modalImg.src = '';
+        document.body.style.overflow = '';
+      }
+      closeBtn.addEventListener('click', closeModal);
+      backdrop.addEventListener('click', closeModal);
+      document.addEventListener('keydown', function(e) {
+        if (modal.style.display === 'flex' && (e.key === 'Escape' || e.key === 'Esc')) closeModal();
+      });
+    });
+  </script>
 </body>
 </html>
